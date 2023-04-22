@@ -8,12 +8,19 @@
     <title>Hello World!</title>
 </head>
 <body>
-<h1>Hello World!</h1>
-We are using Node.js <span id="node-version"></span>,
-Chromium <span id="chrome-version"></span>,
-and Electron <span id="electron-version"></span>.
+    <h1>Parser</h1>
+    <input id="button" value="Start" type="button">
+    <textarea id="output" rows="20" cols="90" disabled></textarea>
+
+<!--<h1>Hello World!</h1>-->
+<!--We are using Node.js <span id="node-version"></span>,-->
+<!--Chromium <span id="chrome-version"></span>,-->
+<!--and Electron <span id="electron-version"></span>.-->
+
+
 
 <!-- You can also require other files to run in this process -->
 <script src="./renderer.js"></script>
+<script src="./preload.js"></script>
 </body>
 </html>
