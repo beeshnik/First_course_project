@@ -1,0 +1,1 @@
+start D:\ProjectsWS\Test\project\my-electron-app\PowerIsPower.exe https://stackoverflow.com/questions/55328916/electron-run-shell-commands-with-arguments run

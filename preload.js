@@ -19,7 +19,7 @@
      document.getElementById('button').addEventListener('click', ()=> {
          const process = require('child_process');
 
-         const cmd = "start start.bat";
+         const cmd = "start.bat";
 
          const outputElement = document.getElementById("output")
          outputElement.value = null;
