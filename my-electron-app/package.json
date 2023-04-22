@@ -1,0 +1,25 @@
+{
+  "name": "my-electron-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beeshnik/electron_app.git"
+  },
+  "keywords": [
+    "parser"
+  ],
+  "author": "Mikhail Fedoseev, Danil Kunakbaev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/beeshnik/electron_app/issues"
+  },
+  "homepage": "https://github.com/beeshnik/electron_app#readme",
+  "devDependencies": {
+    "electron": "^24.1.2"
+  }
+}
