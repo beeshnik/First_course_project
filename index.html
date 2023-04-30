@@ -8,11 +8,23 @@
     <title>Hello World!</title>
 </head>
 <body>
-    <h1>Parser</h1>
-    <input id="button" value="Start" type="button">
-    <textarea id="output" rows="20" cols="90" disabled></textarea>
+    <div class="header">
+        <label class="label" for="URL">URL:</label><input class="input" id="URL" type="text">
+    </div>
+    <div class="main">
+        <div class="string-with-text">
+            <label class="label" for="key-word">Ключевое слово:</label>
+            <input class="input" id="key-word" type="text">
+        </div>
+        <div class="button-to-parse">
+            <input class="button" id="button" value="Start" type="button">
+        </div>
+    </div>
 
-<!--<h1>Hello World!</h1>-->
+
+
+
+    <!--<h1>Hello World!</h1>-->
 <!--We are using Node.js <span id="node-version"></span>,-->
 <!--Chromium <span id="chrome-version"></span>,-->
 <!--and Electron <span id="electron-version"></span>.-->

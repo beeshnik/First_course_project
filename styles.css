@@ -1,3 +1,38 @@
 /* styles.css */
 
 /* Add styles here to customize the appearance of your app */
+.header{
+    padding-top: 130px;
+    padding-left: 150px;
+    /*border: 2px solid crimson;*/
+}
+
+.main{
+    display: flex;
+    padding-left: 66px;
+    padding-top: 5pt;
+    /*border: 2px solid crimson;*/
+}
+
+.string-with-text{
+    /*border: 2px solid crimson;*/
+}
+
+.button-to-parse{
+    padding-left: 10px;
+    /*border: 2px solid crimson;*/
+}
+
+.button{
+    width: 70px;
+    height: 32px;
+}
+
+.input{
+    width: 300px;
+    height: 28px;
+}
+
+.label{
+    padding-right: 5px;
+}

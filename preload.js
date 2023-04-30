@@ -17,29 +17,42 @@
      }
 
      document.getElementById('button').addEventListener('click', ()=> {
+
+         LaunchParser();
+     })
+
+     function LaunchParser(){
          const process = require('child_process');
+         const urlElement = document.getElementById("URL")
+         const keyWordElement = document.getElementById("key-word")
 
-         const cmd = "start.bat";
+         let url = urlElement.innerText;
+         let keyWord = keyWordElement.innerText;
+         let cmd = "start PowerIsPower.exe" + " " + url + " " + keyWord;
 
-         const outputElement = document.getElementById("output")
-         outputElement.value = null;
-         let child = process.spawn(cmd);
+         //const outputElement = document.getElementById("button")
+         //outputElement.value = null;
+         let child = process.exec(cmd);
 
          child.on('error', function(err){
-             outputElement.value += 'error: ' + err + '\n';
+             // outputElement.value += 'error: ' + err + '\n';
+             console.log('error: ' + err + '\n');
          })
 
          child.stdout.on('data', function (data){
-             outputElement.value += data + '\n';
+             // outputElement.value += data + '\n';
+             console.log(data + '\n');
          })
 
          child.stderr.on('data', function (data){
-             outputElement.value += 'stderr' + data + '\n'
+             // outputElement.value += 'stderr' + data + '\n'
+             console.log('stderr' + data + '\n');
          })
 
          child.on('close', function (code){
-             outputElement.value += 'command complete.'
+             // outputElement.value += 'command complete.'
+             console.log('command complete.' + '\n');
          })
-     })
+     }
 })
 
