@@ -17,7 +17,7 @@ function createWindow () {
     mainWindow.loadFile('index.html')
 
     // Open the DevTools.npx
-        mainWindow.webContents.openDevTools()
+        //mainWindow.webContents.openDevTools()
 
 }
 

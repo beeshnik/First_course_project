@@ -5,33 +5,46 @@
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'">
     <link href="./styles.css" rel="stylesheet">
-    <title>Hello World!</title>
+    <title>Parser</title>
 </head>
 <body>
-    <div class="header">
-        <label class="label" for="URL">URL:</label><input class="input" id="URL" type="text">
-    </div>
-    <div class="main">
-        <div class="string-with-text">
-            <label class="label" for="key-word">Ключевое слово:</label>
-            <input class="input" id="key-word" type="text">
+    <header class="main-window">
+        <div class="info-and-buttons">
+            <div class="info">
+                <input id="site-name">
+                <label for="url-page">Ссылка:</label>
+                <input id="url-page">
+                <label for="comments-for-site">Комментарии:</label>
+                <textarea id="comments-for-site"></textarea>
+            </div>
+            <div class="buttons">
+                <span>
+                    <button class="button" id="delete-file" value="Удалить сайт">Удалить сайт</button>
+                    <button class="button" id="update-code" value="Обновить код сайта">Обновить код сайта</button>
+                    <button class="button" id="download-new-site" value="Скачать новый сайт">Скачать новый сайт</button>
+                </span>
+            </div>
         </div>
-        <div class="button-to-parse">
-            <input class="button" id="button" value="Start" type="button">
+        <div class="parse-list">
+            <textarea id="sites"></textarea>
         </div>
-    </div>
+    </header>
 
 
 
 
-    <!--<h1>Hello World!</h1>-->
-<!--We are using Node.js <span id="node-version"></span>,-->
-<!--Chromium <span id="chrome-version"></span>,-->
-<!--and Electron <span id="electron-version"></span>.-->
-
-
-
-<!-- You can also require other files to run in this process -->
+<!--    <div class="header">-->
+<!--        <label class="label" for="URL">URL:</label><input class="input" id="URL" type="text">-->
+<!--    </div>-->
+<!--    <div class="main">-->
+<!--        <div class="string-with-text">-->
+<!--            <label class="label" for="key-word">Ключевое слово:</label>-->
+<!--            <input class="input" id="key-word" type="text">-->
+<!--        </div>-->
+<!--        <div class="button-to-parse">-->
+<!--            <input class="button" id="button" value="Start" type="button">-->
+<!--        </div>-->
+<!--    </div>-->
 <script src="./renderer.js"></script>
 <script src="./preload.js"></script>
 </body>

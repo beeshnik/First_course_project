@@ -1,38 +1,68 @@
 /* styles.css */
 
 /* Add styles here to customize the appearance of your app */
-.header{
-    padding-top: 130px;
-    padding-left: 150px;
-    /*border: 2px solid crimson;*/
-}
+body{
+    background-color: #C3C3C3;
 
-.main{
+}
+.main-window{
     display: flex;
-    padding-left: 66px;
-    padding-top: 5pt;
-    /*border: 2px solid crimson;*/
 }
 
-.string-with-text{
-    /*border: 2px solid crimson;*/
+.info-and-buttons{
+    /*border: crimson solid 2px;*/
+    height: 500px;
+    width: 500px;
 }
 
-.button-to-parse{
-    padding-left: 10px;
-    /*border: 2px solid crimson;*/
+.info{
+    /*border: black solid 1px;*/
+    height: 466px;
+}
+.parse-list{
+    /*border: crimson solid 2px;*/
+    height: 500px;
+    width: 250px;
 }
 
+.buttons{
+    /*border: palegreen solid 1px;*/
+}
 .button{
-    width: 70px;
-    height: 32px;
-}
-
-.input{
-    width: 300px;
-    height: 28px;
-}
-
-.label{
+    width: 160px;
+    height: 30px;
+    background-color: #C9EEEA;
+    border-radius: 7px;
+    border: 0px;
     padding-right: 5px;
+}
+
+input[id="site-name"]{
+    width: 450px;
+    height: 30px;
+    border-radius: 7px;
+    border: 0px;
+    margin-left: 20px;
+}
+
+input[id="url-page"]{
+    width: 350px;
+    height: 30px;
+    border-radius: 7px;
+    border: 0px;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
+textarea[id="comments-for-site"]{
+    width: 350px;
+    height: 30px;
+    border-radius: 7px;
+    border: 0px;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+label{
+    margin-left: 25px;
+    margin-top: 20px;
 }

@@ -26,8 +26,8 @@
          const urlElement = document.getElementById("URL")
          const keyWordElement = document.getElementById("key-word")
 
-         let url = urlElement.innerText;
-         let keyWord = keyWordElement.innerText;
+         let url = urlElement.value;
+         let keyWord = keyWordElement.value;
          let cmd = "start PowerIsPower.exe" + " " + url + " " + keyWord;
 
          //const outputElement = document.getElementById("button")
