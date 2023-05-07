@@ -1,56 +1,110 @@
 /* styles.css */
 
 /* Add styles here to customize the appearance of your app */
-*{
-    padding: 0;
-    margin: 0;
+
+/*overflow - это для полос прокрутки*/
+
+html{
     box-sizing: border-box;
+/*margin: 0px;
+padding: 0px;*/
+}
+
+*,
+*::before,
+*::after{
+    box-sizing: inherit;
 }
 
 html, body, header.header-block{
-    height: 100%;
-    width: 100%;
+/*height: 100%;*/
+/*width: 100%;*/
+    max-width: 1920px;
+    max-height: 1080px;
+    background-color: #C3C3C3;
+    overflow: hidden;
 }
 
-header.header-block{
-    display: grid;
-    grid-template-columns: 10px 40px 1fr 50px 50px 50px 10px;
-    line-height: 40px;
-    height: 40px;
+body{
+    margin: 0px;
+    padding: 0px;
 }
 
+.main-frame-container{
+    display: flex;
+    margin: 15px;
+}
+
+div.info-parsing-files{
+    height: 95vh;
+    width: 55vw;
+}
+
+div.files-list-container{
+    height: 95vh;
+    width: 43%;
+    min-width: 250px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    border: 0px;
+}
+
+.text-areas{
+    display: flex;
+    flex-direction: column;
+}
+
+.text-area{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    margin-right: 30px;
+}
+
+input{
+    border-radius: 6px;
+    border: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+span.label{
+    line-height: 16px;
+    transform: translateX(-0.7px) translateY(-2.2px);
+}
+
+/*header.header-block{*/
+/*display: grid;*/
+/*grid-template-columns: 40px 1fr 50px 50px 50px;*/
+/*line-height: 40px;*/
+/*height: 40px;*/
+/*}*/
+
+/*
 div.close-btn,
 div.max-btn,
 div.min-btn{
-    text-align: center;
-    font-size: 15px;
-    transition: all .3s ease-in-out;
-}
+text-align: center;
+font-size: 15px;
+transition: all .3s ease-in-out;
+}/*
 
-div.close-btn:hover,
+/*div.close-btn:hover,
 div.max-btn:hover,
 div.min-btn:hover{
-    background-color: red;
-    transition: all .3s ease-in-out;
-}
+background-color: red;
+transition: all .3s ease-in-out;
+}/*
 
 div.close-btn:active,
 div.max-btn:active,
 div.min-btn:active{
-    background-color: black;
-    transition: all .3s ease-in-out;
-}
+background-color: black;
+transition: all .3s ease-in-out;
+}/*
 
-.main-frame-container{
-    height: calc(100% - 70px);
-    display: flex;
-    background-color: red;
-    border: #1149c0 solid 1px;
-}
-
-div.title-app{
-    -webkit-app-region: drag;
-}
+/*div.title-app{
+}/*
 
 
 

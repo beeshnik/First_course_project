@@ -6,7 +6,7 @@
  * https://www.electronjs.org/docs/latest/tutorial/sandbox
  */
 
-const { contextBridge, ipcRenderer} = require('electron');
+// const { contextBridge, ipcRenderer} = require('electron');
  window.addEventListener('DOMContentLoaded', () => {
      const replaceText = (selector, text) => {
          const element = document.getElementById(selector)
@@ -18,7 +18,6 @@ const { contextBridge, ipcRenderer} = require('electron');
      }
 
      document.getElementById('button').addEventListener('click', ()=> {
-
          LaunchParser();
      })
 
@@ -57,6 +56,6 @@ const { contextBridge, ipcRenderer} = require('electron');
      }
 })
 
-contextBridge.exposeInMainWorld('ctrls', {
-    wctrl: (btn) => ipcRenderer.invoke('ctrls', btn)
-});
+// contextBridge.exposeInMainWorld('ctrls', {
+//     wctrl: (btn) => ipcRenderer.invoke('ctrls', btn)
+// });

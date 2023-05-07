@@ -21,31 +21,31 @@ function createWindow () {
 
 }
 
-ipcMain.handle('ctrls', (e, btn) => {
-    let res = {class: btn, btn: null};
-    if (btn === 'min-btn') {
-        mainWindow.minimize();
-    } else if (btn === 'max-btn') {
-        if (!mainWindow.isMaximized()){
-            mainWindow.maximize();
-            res.btn = 'MAX';
-        } else {
-            mainWindow.unmaximize();
-            res.btn = 'UNMAX';
-        }
-    } else if (btn === 'close-btn') {
-        mainWindow.close();
-    } else if (btn === 'resize') {
-        if (mainWindow.isMaximized()) {
-            mainWindow.maximize();
-            res.btn = 'MAX';
-        } else {
-            mainWindow.unmaximize();
-            res.btn = 'UNMAX';
-        }
-    }
-    return res;
-})
+// ipcMain.handle('ctrls', (e, btn) => {
+//     let res = {class: btn, btn: null};
+//     if (btn === 'min-btn') {
+//         mainWindow.minimize();
+//     } else if (btn === 'max-btn') {
+//         if (!mainWindow.isMaximized()){
+//             mainWindow.maximize();
+//             res.btn = 'MAX';
+//         } else {
+//             mainWindow.unmaximize();
+//             res.btn = 'UNMAX';
+//         }
+//     } else if (btn === 'close-btn') {
+//         mainWindow.close();
+//     } else if (btn === 'resize') {
+//         if (mainWindow.isMaximized()) {
+//             mainWindow.maximize();
+//             res.btn = 'MAX';
+//         } else {
+//             mainWindow.unmaximize();
+//             res.btn = 'UNMAX';
+//         }
+//     }
+//     return res;
+// })
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
