@@ -6,6 +6,7 @@
  * https://www.electronjs.org/docs/latest/tutorial/sandbox
  */
 
+const { contextBridge, ipcRenderer} = require('electron');
  window.addEventListener('DOMContentLoaded', () => {
      const replaceText = (selector, text) => {
          const element = document.getElementById(selector)
@@ -56,3 +57,6 @@
      }
 })
 
+contextBridge.exposeInMainWorld('ctrls', {
+    wctrl: (btn) => ipcRenderer.invoke('ctrls', btn)
+});

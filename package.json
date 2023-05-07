@@ -20,6 +20,5 @@
   },
   "homepage": "https://github.com/beeshnik/electron_app#readme",
   "dependencies": {
-    "electronmon": "^2.0.2"
   }
 }

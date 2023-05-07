@@ -1,68 +1,119 @@
 /* styles.css */
 
 /* Add styles here to customize the appearance of your app */
-body{
-    background-color: #C3C3C3;
-
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
-.main-window{
+
+html, body, header.header-block{
+    height: 100%;
+    width: 100%;
+}
+
+header.header-block{
+    display: grid;
+    grid-template-columns: 10px 40px 1fr 50px 50px 50px 10px;
+    line-height: 40px;
+    height: 40px;
+}
+
+div.close-btn,
+div.max-btn,
+div.min-btn{
+    text-align: center;
+    font-size: 15px;
+    transition: all .3s ease-in-out;
+}
+
+div.close-btn:hover,
+div.max-btn:hover,
+div.min-btn:hover{
+    background-color: red;
+    transition: all .3s ease-in-out;
+}
+
+div.close-btn:active,
+div.max-btn:active,
+div.min-btn:active{
+    background-color: black;
+    transition: all .3s ease-in-out;
+}
+
+.main-frame-container{
+    height: calc(100% - 70px);
     display: flex;
+    background-color: red;
+    border: #1149c0 solid 1px;
 }
 
-.info-and-buttons{
-    /*border: crimson solid 2px;*/
-    height: 500px;
-    width: 500px;
+div.title-app{
+    -webkit-app-region: drag;
 }
 
-.info{
-    /*border: black solid 1px;*/
-    height: 466px;
-}
-.parse-list{
-    /*border: crimson solid 2px;*/
-    height: 500px;
-    width: 250px;
-}
 
-.buttons{
-    /*border: palegreen solid 1px;*/
-}
-.button{
-    width: 160px;
-    height: 30px;
-    background-color: #C9EEEA;
-    border-radius: 7px;
-    border: 0px;
-    padding-right: 5px;
-}
 
-input[id="site-name"]{
-    width: 450px;
-    height: 30px;
-    border-radius: 7px;
-    border: 0px;
-    margin-left: 20px;
-}
 
-input[id="url-page"]{
-    width: 350px;
-    height: 30px;
-    border-radius: 7px;
-    border: 0px;
-    margin-left: 10px;
-    margin-top: 20px;
-}
 
-textarea[id="comments-for-site"]{
-    width: 350px;
-    height: 30px;
-    border-radius: 7px;
-    border: 0px;
-    margin-left: 10px;
-    margin-top: 20px;
-}
-label{
-    margin-left: 25px;
-    margin-top: 20px;
-}
+/*.main-window{*/
+/*    display: flex;*/
+/*}*/
+
+/*.info-and-buttons{*/
+/*    !*border: crimson solid 2px;*!*/
+/*    height: 500px;*/
+/*    width: 500px;*/
+/*}*/
+
+/*.info{*/
+/*    !*border: black solid 1px;*!*/
+/*    height: 466px;*/
+/*}*/
+/*.parse-list{*/
+/*    !*border: crimson solid 2px;*!*/
+/*    height: 500px;*/
+/*    width: 250px;*/
+/*}*/
+
+/*.buttons{*/
+/*    !*border: palegreen solid 1px;*!*/
+/*}*/
+/*.button{*/
+/*    width: 160px;*/
+/*    height: 30px;*/
+/*    background-color: #C9EEEA;*/
+/*    border-radius: 7px;*/
+/*    border: 0px;*/
+/*    padding-right: 5px;*/
+/*}*/
+
+/*input[id="site-name"]{*/
+/*    width: 450px;*/
+/*    height: 30px;*/
+/*    border-radius: 7px;*/
+/*    border: 0px;*/
+/*    margin-left: 20px;*/
+/*}*/
+
+/*input[id="url-page"]{*/
+/*    width: 350px;*/
+/*    height: 30px;*/
+/*    border-radius: 7px;*/
+/*    border: 0px;*/
+/*    margin-left: 10px;*/
+/*    margin-top: 20px;*/
+/*}*/
+
+/*textarea[id="comments-for-site"]{*/
+/*    width: 350px;*/
+/*    height: 30px;*/
+/*    border-radius: 7px;*/
+/*    border: 0px;*/
+/*    margin-left: 10px;*/
+/*    margin-top: 20px;*/
+/*}*/
+/*label{*/
+/*    margin-left: 25px;*/
+/*    margin-top: 20px;*/
+/*}*/
