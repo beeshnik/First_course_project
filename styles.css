@@ -38,6 +38,9 @@ body{
 div.info-parsing-files{
     height: 95vh;
     width: 55vw;
+    display: flex;
+    flex-direction: column;
+    padding-right: 30px;
 }
 
 div.files-list-container{
@@ -58,7 +61,12 @@ div.files-list-container{
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
-    margin-right: 30px;
+    font-size: 20pt;
+}
+
+h1.name-of-cite{
+    margin-top: 0;
+    padding-bottom: 0.4em;
 }
 
 input{
@@ -66,11 +74,70 @@ input{
     border: 0px;
     padding-left: 10px;
     padding-right: 10px;
+    font-size: 20pt;
+}
+
+textarea{
+    resize: none;
+    border-radius: 6px;
+    border: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 20pt;
+    height: 40vh;
+}
+
+input:active{
+    border: 0px;
+    border-color: red;
 }
 
 span.label{
     line-height: 16px;
-    transform: translateX(-0.7px) translateY(-2.2px);
+    font-size: 0.8em;
+    transform: translateY(-8px);
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+    margin-bottom: 0;
+}
+
+div.buttons-left{
+    display: flex;
+    flex-direction: column;
+}
+div.buttons-middle{
+    display: flex;
+    flex-direction: column;
+}
+div.buttons-right{
+    display: flex;
+    flex-direction: column;
+}
+
+button{
+    width: 16vw;
+    height: 40px;
+    border: 0;
+    border-radius: 6px;
+    background-color: #C9EEEA;
+    /*margin: auto;*/
+    font-size: 0.7em;
+    margin-bottom: 2vh;
+}
+
+button:hover{
+    transition: all .3s ease-in-out;
+    border: red;
+    border: 3px;
+}
+
+button:active{
+    transition: all .3s ease-in-out;
+    background-color: #A0A0A0;
 }
 
 /*header.header-block{*/
