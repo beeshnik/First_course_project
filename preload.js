@@ -64,26 +64,31 @@ window.addEventListener('DOMContentLoaded', () => {
          fs.readdir(path.resolve(__dirname, "Files"), (err, files) => {
 
              let objects = [];
+             let div = document.getElementById('files-list-container');
+             div.innerHTML = "";
              for (let i = 0; i < files.length; i++){
                  if (files[i].includes('.txt') && files[i].includes('PRIS')){
                      fs.readFile('Files/' + files[i], function(err, data) {
                          if (err) throw err;
                          let array = data.toString().split("\n");
-                         let div = document.getElementById('files-list-container');
+
                          let newElement = document.createElement('div');
                          div.appendChild(newElement);
-                         for(i in array) {
-                             newElement.className = "file";
-                             newElement.textContent = array[i];
-                         }
+                         newElement.className = "file";
+                         let p = document.createElement('p')
+                         p.className = "filename";
+                         p.textContent = array[0];
+                         newElement.appendChild(p);
                      });
                  }
              }
          })
      }
 
+    AddElements();
+
     document.getElementById('download-links').addEventListener('click', ()=> {
-        AddElements();
+        // AddElements();
     })
 
 
