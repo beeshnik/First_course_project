@@ -12,6 +12,14 @@ contextBridge.exposeInMainWorld('electronAPI', {
     setTitle: (title) => ipcRenderer.send('set-title', title)
 })
 
+contextBridge.exposeInMainWorld('createWindow', {
+    createDialog: (width, heigth, htmlname) => ipcRenderer.send('add-site', width, heigth, htmlname)
+})
+
+contextBridge.exposeInMainWorld('addSite', {
+
+})
+
 window.addEventListener('DOMContentLoaded', () => {
      const replaceText = (selector, text) => {
          const element = document.getElementById(selector)
@@ -73,7 +81,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
      function AddElements(){
          fs.readdir(path.resolve(__dirname, "Files"), (err, files) => {
-
              let objects = [];
              let div = document.getElementById('files-list-container');
              div.innerHTML = "";

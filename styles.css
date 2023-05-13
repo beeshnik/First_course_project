@@ -26,13 +26,30 @@ html, body, header.header-block{
 }
 
 body{
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
 }
 
 .main-frame-container{
     display: flex;
     /*margin: 15px;*/
+}
+
+div.second-frame{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 35vh;
+}
+
+div.second-frame-container{
+    display: flex;
+    /*width: 100vw;*/
+    /*height: 100vh;*/
+    /*padding-left: 8vw;*/
+    /*padding-top: 30vh;*/
 }
 
 div.info-parsing-files{
@@ -138,6 +155,9 @@ button{
     background-color: #C9EEEA;
     /*margin: auto;*/
     font-size: 0.7em;
+}
+
+button.main-buttons{
     margin-bottom: 2vh;
 }
 
@@ -168,6 +188,12 @@ div.file {
 p.filename{
     margin: 0;
 }
+
+
+
+
+
+
 
 /*header.header-block{*/
 /*display: grid;*/

@@ -1,8 +1,13 @@
-const setButton = document.getElementById('btn')
-const titleInput = document.getElementById('title')
-setButton.addEventListener('click', () => {
-    const title = titleInput.value
+const button = document.getElementById('btn')
+const input = document.getElementById('title')
+button.addEventListener('click', () => {
+    const title = input.value
     window.electronAPI.setTitle(title)
+})
+
+const addSiteButton = document.getElementById('add-site')
+addSiteButton.addEventListener('click', () => {
+    window.createWindow.createDialog(600, 300, 'addSite.html')
 })
 
 /**
