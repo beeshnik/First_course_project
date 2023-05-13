@@ -6,7 +6,11 @@
  * https://www.electronjs.org/docs/latest/tutorial/sandbox
  */
 
-// const { contextBridge, ipcRenderer} = require('electron');
+const { contextBridge, ipcRenderer } = require('electron')
+
+contextBridge.exposeInMainWorld('electronAPI', {
+    setTitle: (title) => ipcRenderer.send('set-title', title)
+})
 
 window.addEventListener('DOMContentLoaded', () => {
      const replaceText = (selector, text) => {
@@ -21,6 +25,13 @@ window.addEventListener('DOMContentLoaded', () => {
      // document.getElementById('button').addEventListener('click', ()=> {
      //     LaunchParser();
      // })
+
+    // const setButton = document.getElementById('btn')
+    // const titleInput = document.getElementById('title')
+    // setButton.addEventListener('click', () => {
+    //     const title = titleInput.value
+    //     window.electronAPI.setTitle(title)
+    // });
 
      function LaunchParser(){
          const process = require('child_process');
@@ -57,7 +68,7 @@ window.addEventListener('DOMContentLoaded', () => {
      }
 
      const fs = require('fs');
-     const readline = require("readline");
+     const readline = require('readline');
      const path = require('path');
 
      function AddElements(){
@@ -68,16 +79,18 @@ window.addEventListener('DOMContentLoaded', () => {
              div.innerHTML = "";
              for (let i = 0; i < files.length; i++){
                  if (files[i].includes('.txt') && files[i].includes('PRIS')){
+                     let siteName = files[i];
+                     siteName = siteName.substring(5, siteName.length - 4);
                      fs.readFile('Files/' + files[i], function(err, data) {
                          if (err) throw err;
-                         let array = data.toString().split("\n");
-
+                         // let array = data.toString().split("\n");
                          let newElement = document.createElement('div');
+                         // newElement.onclick = alert('Кнопка нажата!');
                          div.appendChild(newElement);
                          newElement.className = "file";
                          let p = document.createElement('p')
                          p.className = "filename";
-                         p.textContent = array[0];
+                         p.textContent = siteName;
                          newElement.appendChild(p);
                      });
                  }
@@ -85,13 +98,11 @@ window.addEventListener('DOMContentLoaded', () => {
          })
      }
 
-    AddElements();
+     AddElements();
 
-    document.getElementById('download-links').addEventListener('click', ()=> {
-        // AddElements();
-    })
-
-
+     document.getElementById('download-links').addEventListener('click', ()=> {
+         // AddElements();
+     })
 })
 
 // contextBridge.exposeInMainWorld('ctrls', {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
@@ -8,13 +8,6 @@
     <title>Parser app</title>
 </head>
 <body>
-<!--    <header class="header-block">-->
-<!--        <div class="icon-app"><i></i></div>-->
-<!--        <div class="title-app"><i>Parser</i></div>-->
-<!--        <div class="btn min-btn"><i></i></div>-->
-<!--        <div class="btn max-btn"><i></i></div>-->
-<!--        <div class="btn close-btn"><i></i></div>-->
-<!--    </header>-->
     <div class="main-frame">
         <div class="main-frame-container">
             <div class="info-parsing-files">
@@ -22,7 +15,7 @@
                     <h1 class="name-of-cite">Заголовок</h1>
                     <label class="text-area">
                         <span class="label">Ссылка на ресурс:</span>
-                        <input type="text" name="">
+                        <input type="text" name="" id="title">
                     </label>
                     <label class="text-area">
                         <span class="label">Комментарий:</span>
@@ -31,67 +24,25 @@
                 </div>
                 <div class="buttons">
                     <div class="buttons-left">
-                        <button>Найти по слову</button>
+                        <button id="btn">Найти по слову</button>
                         <button>Удалить файл</button>
                     </div>
                     <div class="buttons-middle">
-                        <button>Скачать ссылки</button>
+                        <button>Скачать e-mail</button>
                         <button>Обновить код сайта</button>
                     </div>
                     <div class="buttons-right">
-                        <button id="download-links">Скачать ссылки</button>
-                        <button>Скачать новый сайт</button>
+                        <button id="download-links">Скачать изображения</button>
+                        <button>Добавить сайт</button>
                     </div>
                 </div>
             </div>
             <div class="files-list" id="files-list">
                 <div class="files-list-container" id="files-list-container">
-
                 </div>
             </div>
         </div>
     </div>
 <script src="./renderer.js"></script>
-<script src="./preload.js"></script>
-<script src="./main.js"></script>
 </body>
 </html>
-
-
-<!--    <header class="main-window">-->
-<!--        <div class="info-and-buttons">-->
-<!--            <div class="info">-->
-<!--                <input id="site-name">-->
-<!--                <label for="url-page">Ссылка:</label>-->
-<!--                <input id="url-page">-->
-<!--                <label for="comments-for-site">Комментарии:</label>-->
-<!--                <textarea id="comments-for-site">-->
-<!--            </div>-->
-<!--            <div class="buttons">-->
-<!--                <span>-->
-<!--                    <button class="button" id="delete-file" value="Удалить сайт">Удалить сайт</button>-->
-<!--                    <button class="button" id="update-code" value="Обновить код сайта">Обновить код сайта</button>-->
-<!--                    <button class="button" id="download-new-site" value="Скачать новый сайт">Скачать новый сайт</button>-->
-<!--                </span>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="parse-list">-->
-<!--            <textarea id="sites"></textarea>-->
-<!--        </div>-->
-<!--    </header>-->
-
-
-
-
-<!--    <div class="header">-->
-<!--        <label class="label" for="URL">URL:</label><input class="input" id="URL" type="text">-->
-<!--    </div>-->
-<!--    <div class="main">-->
-<!--        <div class="string-with-text">-->
-<!--            <label class="label" for="key-word">Ключевое слово:</label>-->
-<!--            <input class="input" id="key-word" type="text">-->
-<!--        </div>-->
-<!--        <div class="button-to-parse">-->
-<!--            <input class="button" id="button" value="Start" type="button">-->
-<!--        </div>-->
-<!--    </div>-->
