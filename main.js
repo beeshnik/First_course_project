@@ -2,6 +2,10 @@
 const { app, BrowserWindow, Menu } = require('electron')
 const path = require('path')
 const { contextBridge, ipcMain} = require('electron')
+const process = require('child_process')
+const url = require("url");
+const fs = require("fs");
+
 function createWindow () {
     // Create the browser window.
     const mainWindow = new BrowserWindow({
@@ -19,7 +23,7 @@ function createWindow () {
         win.setTitle(title)
     })
 
-    ipcMain.on('add-site', (event, width, heigth, htmlname) => {
+    ipcMain.on('create-window', (event, width, heigth, htmlname) => {
         if (BrowserWindow.getAllWindows().length === 1) createDialog(width, heigth, htmlname)
     })
 
@@ -67,6 +71,40 @@ function createDialog(width, heigth, gui){
     newWindow.setMinimizable(false);
     newWindow.maximizable = false;
     newWindow.loadFile(gui);
+
+    ipcMain.on('add-site', (event, url) => {
+        addSite(url);
+        newWindow.close();
+    })
+}
+
+function addSite(url) {
+    let adress = './Files/SavePageCode.exe'
+    let dirPath = __dirname + '\\File'
+    console.log(dirPath)
+    let newSite = process.execFile(adress, ['-u', url] ,  {
+        // windowsHide: false
+    })
+
+    newSite.on('error', function(err){
+        // outputElement.value += 'error: ' + err + '\n';
+        console.log('error: ' + err + '\n');
+    })
+
+    newSite.stdout.on('data', function (data){
+        // outputElement.value += data + '\n';
+        console.log(data + '\n');
+    })
+
+    newSite.stderr.on('data', function (data){
+        // outputElement.value += 'stderr' + data + '\n'
+        console.log('stderr' + data + '\n');
+    })
+
+    newSite.on('close', function (code){
+        // outputElement.value += 'command complete.'
+        console.log('command complete.' + '\n');
+    })
 }
 
 app.whenReady().then(() => {
