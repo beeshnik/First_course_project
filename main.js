@@ -1,9 +1,9 @@
 // Modules to control application life and create native browser window
-const { app, BrowserWindow, Menu } = require('electron')
+const { app, BrowserWindow, Menu, dialog} = require('electron')
 const path = require('path')
 const { contextBridge, ipcMain} = require('electron')
+const {ipcRenderer} = require('electron')
 const process = require('child_process')
-const url = require("url");
 const fs = require("fs");
 
 function createWindow () {
@@ -25,36 +25,40 @@ function createWindow () {
 
     ipcMain.on('create-window', (event, width, heigth, htmlname) => {
         if (BrowserWindow.getAllWindows().length === 1) createDialog(width, heigth, htmlname)
+    });
+
+    function getValuesArray(){
+        let objects = []
+        let strings = fs.readdirSync(path.resolve(__dirname, 'Files'))
+        for (let i = 0; i < strings.length; i++){
+            if (strings[i].includes('.txt') && strings[i].includes('PRIS')){
+                const file = fs.readFileSync('Files/' + strings[i], 'utf-8')
+                let array = file.toString().split("\n" || "\r")
+                let link = array[0];
+                link = link.substring(0, link.length - 1)
+                let path = strings[i];
+                let siteName = path.substring(5, path.length - 4);
+                let object = {
+                    objectPath: path,
+                    objectName: siteName,
+                    objectLink: link,
+                }
+                objects.push(object)
+            }
+        }
+        return objects
+    }
+
+    ipcMain.handle('arrays', (event) => {
+        // Создаёт диалог и отправляет результат в preload.js
+        return getValuesArray()
     })
-
-    // const menu = Menu.buildFromTemplate([
-    //     {
-    //         label: "Файл",
-    //         submenu: [
-    //             {
-    //                 click: () => mainWindow.webContents.send('update-counter', 1),
-    //                 label: 'Increment'
-    //             },
-    //             {
-    //                 click: () => mainWindow.webContents.send('update-counter', -1),
-    //                 label: 'Decrement'
-    //             }
-    //         ]
-    //     }
-    // ])
-
-    // Menu.setApplicationMenu(menu)
 
     mainWindow.loadFile('index.html');
     mainWindow.menuBarVisible = false;
-
-    // - Не работает :(
-    // - А должно?
-
-    // app.on(mainWindow.closed, function (){
-    //     app.quit();
-    // })
 }
+
+
 
 function createDialog(width, heigth, gui){
     const newWindow = new BrowserWindow({
@@ -73,16 +77,30 @@ function createDialog(width, heigth, gui){
     newWindow.loadFile(gui);
 
     ipcMain.on('add-site', (event, url) => {
-        addSite(url);
+        (async () => {
+            await addSite(url);
+        })();
         newWindow.close();
     })
 }
 
+app.whenReady().then(() => {
+    createWindow()
+
+
+    app.on('activate', function () {
+        if (BrowserWindow.getAllWindows().length === 0) createWindow()
+    })
+})
+
+app.on('window-all-closed', function () {
+    if (process.platform !== 'darwin') app.quit()
+})
+
 function addSite(url) {
     let adress = './Files/SavePageCode.exe'
-    let dirPath = __dirname + '\\File'
-    console.log(dirPath)
-    let newSite = process.execFile(adress, ['-u', url] ,  {
+    let dirPath = __dirname + '\\Files\\'
+    let newSite = process.execFile(adress, ['-u', url, '-r', dirPath] ,  {
         // windowsHide: false
     })
 
@@ -106,21 +124,6 @@ function addSite(url) {
         console.log('command complete.' + '\n');
     })
 }
-
-app.whenReady().then(() => {
-    createWindow()
-
-
-    app.on('activate', function () {
-        if (BrowserWindow.getAllWindows().length === 0) createWindow()
-    })
-})
-
-app.on('window-all-closed', function () {
-    if (process.platform !== 'darwin') app.quit()
-})
-
-
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
